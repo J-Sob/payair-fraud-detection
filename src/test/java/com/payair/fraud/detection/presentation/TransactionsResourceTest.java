@@ -1,7 +1,6 @@
-package com.payair.fraud.detection.infrastructure;
+package com.payair.fraud.detection.presentation;
 
-import com.payair.fraud.detection.infrastructure.endpoint.TransactionsResource;
-import com.payair.fraud.detection.infrastructure.endpoint.dto.TransactionsRequest;
+import com.payair.fraud.detection.presentation.dto.TransactionsRequest;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.Header;
@@ -16,8 +15,8 @@ public class TransactionsResourceTest {
     private final Header contentJsonHeader = new Header("Content-Type", "application/json");
 
     @Test
-    public void testTransactions() {
-        TransactionsRequest request = new TransactionsRequest("BIN");
+    public void testVerifyTransaction() {
+        TransactionsRequest request = new TransactionsRequest("BIN", "+48", 433d);
 
         given().body(request)
                 .header(contentJsonHeader)
