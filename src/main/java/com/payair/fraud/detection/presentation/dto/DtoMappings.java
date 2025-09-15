@@ -2,9 +2,9 @@ package com.payair.fraud.detection.presentation.dto;
 
 import com.payair.fraud.detection.application.data.TransactionData;
 import com.payair.fraud.detection.application.data.TransactionResult;
-import com.payair.fraud.detection.domain.transaction.BIN;
-import com.payair.fraud.detection.domain.transaction.ISONumericCountryCode;
-import com.payair.fraud.detection.domain.transaction.TransactionAmount;
+import com.payair.fraud.detection.domain.data.transaction.BIN;
+import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.data.transaction.TransactionAmount;
 
 public class DtoMappings {
 

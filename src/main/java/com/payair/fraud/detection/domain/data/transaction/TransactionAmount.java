@@ -1,4 +1,4 @@
-package com.payair.fraud.detection.domain.transaction;
+package com.payair.fraud.detection.domain.data.transaction;
 
 import com.payair.fraud.detection.domain.exceptions.WrongDataFormatException;
 
