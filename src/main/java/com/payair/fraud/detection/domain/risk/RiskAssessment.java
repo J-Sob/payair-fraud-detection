@@ -8,23 +8,23 @@ import static com.payair.fraud.detection.domain.risk.RiskLevel.HIGH;
 import static com.payair.fraud.detection.domain.risk.RiskLevel.LOW;
 import static com.payair.fraud.detection.domain.risk.RiskLevel.MEDIUM;
 import static com.payair.fraud.detection.domain.risk.RiskLevel.SAFE;
-import static java.util.Collections.emptyList;
+import static java.util.Collections.unmodifiableList;
 
 public class RiskAssessment {
     private RiskLevel riskLevel = SAFE;
-    private List<String> riskAssessment = emptyList();
+    private final List<String> riskAssessment = new ArrayList<>();
 
     public void increaseRiskLevel(String assessment) {
         riskLevel = nextRiskLevel();
         riskAssessment.add(assessment);
     }
 
-    public int getRiskLevel() {
-        return riskLevel.value;
+    public RiskLevel getRiskLevel() {
+        return riskLevel;
     }
 
     public List<String> getRiskAssessment() {
-        return new ArrayList<>(riskAssessment);
+        return unmodifiableList(riskAssessment);
     }
 
     private RiskLevel nextRiskLevel() {

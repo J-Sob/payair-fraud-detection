@@ -5,7 +5,9 @@ import com.payair.fraud.detection.domain.data.account.AccountData;
 import com.payair.fraud.detection.domain.policy.result.AssessmentResult;
 import com.payair.fraud.detection.domain.policy.result.Failure;
 import com.payair.fraud.detection.domain.policy.result.Success;
+import jakarta.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 public class CountryBasedPolicy implements AssessmentPolicy {
 
     private static final String assessmentMessage = "Transaction country isn't the same as account country of origin.";

@@ -33,4 +33,8 @@ public class AccountFixtures {
     public static AccountData accountDataWithGamblingBlock(boolean gamblingBlock) {
         return new AccountData(randomCountryCode(), randomFundingSource(), randomConsumerType(), gamblingBlock);
     }
+
+    public static AccountData randomAccountData() {
+        return new AccountData(randomCountryCode(), randomFundingSource(), randomConsumerType(), RandomUtils.secure().randomBoolean());
+    }
 }

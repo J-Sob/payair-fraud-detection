@@ -1,9 +1,8 @@
 package com.payair.fraud.detection.presentation;
 
-import com.payair.fraud.detection.application.data.TransactionResult;
-import com.payair.fraud.detection.domain.risk.RiskAssessment;
 import com.payair.fraud.detection.application.FraudDetectionService;
 import com.payair.fraud.detection.application.data.TransactionData;
+import com.payair.fraud.detection.application.data.TransactionResult;
 import com.payair.fraud.detection.presentation.dto.TransactionsRequest;
 import com.payair.fraud.detection.presentation.dto.TransactionsResponse;
 import jakarta.inject.Inject;

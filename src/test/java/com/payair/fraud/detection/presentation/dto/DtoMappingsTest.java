@@ -34,7 +34,7 @@ public class DtoMappingsTest {
 
         TransactionData transactionData = DtoMappings.mapFromRequest(request);
 
-        assertEquals(request.BIN(), transactionData.BIN().value());
+        assertEquals(request.BIN(), transactionData.bin().value());
         assertEquals(request.countryCode(), transactionData.country().value());
         assertEquals(request.transactionAmount(), transactionData.amount().value());
     }
@@ -59,7 +59,7 @@ public class DtoMappingsTest {
 
     private static Stream<Arguments> invalidRequests() {
         return Stream.of(
-                Arguments.of(new TransactionsRequest("invalid", "616", 320d), "Invalid BIN value"),
+                Arguments.of(new TransactionsRequest("invalid", "616", 320d), "Invalid bin value"),
                 Arguments.of(new TransactionsRequest("123456", "invalid", 320d), "Invalid country code value"),
                 Arguments.of(new TransactionsRequest("123456", "616", -450d), "Amount value cannot be negative")
         );
