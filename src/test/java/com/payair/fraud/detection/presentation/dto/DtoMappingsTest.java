@@ -34,7 +34,7 @@ public class DtoMappingsTest {
 
         TransactionData transactionData = DtoMappings.mapFromRequest(request);
 
-        assertEquals(request.BIN(), transactionData.bin().value());
+        assertEquals(request.bin(), transactionData.bin().value());
         assertEquals(request.countryCode(), transactionData.country().value());
         assertEquals(request.transactionAmount(), transactionData.amount().value());
     }

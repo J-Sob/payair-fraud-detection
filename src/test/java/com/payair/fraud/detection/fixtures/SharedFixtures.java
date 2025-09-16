@@ -1,6 +1,6 @@
 package com.payair.fraud.detection.fixtures;
 
-import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class SharedFixtures {

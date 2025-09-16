@@ -1,9 +1,9 @@
 package com.payair.fraud.detection.fixtures;
 
-import com.payair.fraud.detection.domain.data.account.AccountData;
-import com.payair.fraud.detection.domain.data.account.ConsumerType;
-import com.payair.fraud.detection.domain.data.account.FundingSource;
-import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.account.AccountData;
+import com.payair.fraud.detection.domain.account.ConsumerType;
+import com.payair.fraud.detection.domain.account.FundingSource;
+import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
 import org.apache.commons.lang3.RandomUtils;
 
 import static com.payair.fraud.detection.fixtures.SharedFixtures.randomCountryCode;

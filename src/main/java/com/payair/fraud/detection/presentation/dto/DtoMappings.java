@@ -2,9 +2,9 @@ package com.payair.fraud.detection.presentation.dto;
 
 import com.payair.fraud.detection.application.data.TransactionData;
 import com.payair.fraud.detection.application.data.TransactionResult;
-import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
-import com.payair.fraud.detection.domain.data.transaction.BIN;
-import com.payair.fraud.detection.domain.data.transaction.TransactionAmount;
+import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.transaction.BIN;
+import com.payair.fraud.detection.domain.transaction.TransactionAmount;
 
 public class DtoMappings {
 
@@ -13,7 +13,7 @@ public class DtoMappings {
     }
 
     public static TransactionData mapFromRequest(TransactionsRequest transactionsRequest) {
-        BIN bin = new BIN(transactionsRequest.BIN());
+        BIN bin = new BIN(transactionsRequest.bin());
         ISONumericCountryCode countryCode = new ISONumericCountryCode(transactionsRequest.countryCode());
         TransactionAmount transactionAmount = new TransactionAmount(transactionsRequest.transactionAmount());
         return new TransactionData(bin, countryCode, transactionAmount);

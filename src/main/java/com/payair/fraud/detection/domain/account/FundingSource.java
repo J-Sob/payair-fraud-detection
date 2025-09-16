@@ -1,4 +1,4 @@
-package com.payair.fraud.detection.domain.data.account;
+package com.payair.fraud.detection.domain.account;
 
 public enum FundingSource {
     DEBIT,

@@ -1,11 +1,11 @@
 package com.payair.fraud.detection.domain.policy;
 
 import com.payair.fraud.detection.application.data.TransactionData;
-import com.payair.fraud.detection.domain.data.account.AccountData;
-import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.account.AccountData;
 import com.payair.fraud.detection.domain.policy.result.AssessmentResult;
 import com.payair.fraud.detection.domain.policy.result.Failure;
 import com.payair.fraud.detection.domain.policy.result.Success;
+import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
 import org.junit.jupiter.api.Test;
 
 import static com.payair.fraud.detection.fixtures.AccountFixtures.accountDataWithCountryCode;

@@ -1,0 +1,56 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/bin-ranges/account-searches",
+    "headers": {
+      "Authorization": {
+        "matches": "OAuth.*"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.accountRange =~ /^\\d{6,8}$/)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": [
+      {
+        "lowAccountRange": 2229293150000000000,
+        "highAccountRange": 2229293200000000000,
+        "binNum": "222929",
+        "binLength": 6,
+        "acceptanceBrand": "MCC",
+        "ica": "00000023460",
+        "customerName": "TRIPLINK INTERNATIONAL CO.,LIMITED",
+        "country": {
+          "code": 372,
+          "alpha3": "IRL",
+          "name": "Ireland"
+        },
+        "localUse": false,
+        "authorizationOnly": false,
+        "productCode": "MCO",
+        "productDescription": "MASTERCARD CORPORATE",
+        "governmentRange": false,
+        "nonReloadableIndicator": false,
+        "anonymousPrepaidIndicator": "N",
+        "cardholderCurrencyIndicator": "C",
+        "billingCurrencyDefault": "XXX",
+        "comboCardIndicator": "N",
+        "flexCardIndicator": "N",
+        "programName": "",
+        "vertical": "",
+        "fundingSource": "DEBIT",
+        "consumerType": "CONSUMER",
+        "affiliate": "ABC",
+        "paymentAccountType": "P",
+        "gamblingBlockEnabled": false
+      }
+    ]
+  }
+}

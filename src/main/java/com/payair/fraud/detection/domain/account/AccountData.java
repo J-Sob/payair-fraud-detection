@@ -1,6 +1,6 @@
-package com.payair.fraud.detection.domain.data.account;
+package com.payair.fraud.detection.domain.account;
 
-import com.payair.fraud.detection.domain.data.shared.ISONumericCountryCode;
+import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
 
 public record AccountData(
         ISONumericCountryCode countryCode,

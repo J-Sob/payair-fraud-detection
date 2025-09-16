@@ -1,4 +1,4 @@
-package com.payair.fraud.detection.domain.data.shared;
+package com.payair.fraud.detection.domain.shared;
 
 import com.payair.fraud.detection.domain.exceptions.WrongDataFormatException;
 

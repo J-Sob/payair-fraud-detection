@@ -23,19 +23,23 @@ import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapToRespo
 @Consumes(MediaType.APPLICATION_JSON)
 public class TransactionsResource {
 
-    private static final Logger LOG = Logger.getLogger(TransactionsResource.class);
+    private static final Logger log = Logger.getLogger(TransactionsResource.class);
+    private final FraudDetectionService fraudDetectionService;
 
     @Inject
-    FraudDetectionService fraudDetectionService;
+    public TransactionsResource(FraudDetectionService fraudDetectionService) {
+        this.fraudDetectionService = fraudDetectionService;
+    }
 
     @POST
     public Response verifyTransaction(TransactionsRequest transactionsRequest) {
-        LOG.info("Received transactions request: " + transactionsRequest);
+        log.info("Verify transaction request: " + transactionsRequest);
 
         TransactionData transactionData = mapFromRequest(transactionsRequest);
         TransactionResult transactionResult = fraudDetectionService.verifyTransaction(transactionData);
         TransactionsResponse transactionsResponse = mapToResponse(transactionResult);
 
+        log.info("Verify transaction response: " + transactionsResponse);
         return Response.ok()
                 .entity(transactionsResponse)
                 .build();

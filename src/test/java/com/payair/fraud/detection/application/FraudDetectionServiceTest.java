@@ -2,20 +2,20 @@ package com.payair.fraud.detection.application;
 
 import com.payair.fraud.detection.application.data.TransactionData;
 import com.payair.fraud.detection.application.data.TransactionResult;
-import com.payair.fraud.detection.domain.data.account.AccountData;
+import com.payair.fraud.detection.domain.account.AccountData;
+import com.payair.fraud.detection.domain.account.AccountDataProvider;
 import com.payair.fraud.detection.domain.policy.AssessmentPolicy;
 import com.payair.fraud.detection.domain.policy.result.Failure;
 import com.payair.fraud.detection.domain.policy.result.Success;
-import com.payair.fraud.detection.domain.risk.RiskLevel;
-import io.quarkus.test.Mock;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.List;
 
-import static com.payair.fraud.detection.domain.risk.RiskLevel.*;
+import static com.payair.fraud.detection.domain.risk.RiskLevel.LOW;
+import static com.payair.fraud.detection.domain.risk.RiskLevel.MEDIUM;
+import static com.payair.fraud.detection.domain.risk.RiskLevel.SAFE;
 import static com.payair.fraud.detection.fixtures.AccountFixtures.randomAccountData;
 import static com.payair.fraud.detection.fixtures.TransactionFixtures.randomTransactionData;
 import static org.junit.jupiter.api.Assertions.assertEquals;

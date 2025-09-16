@@ -1,8 +1,8 @@
 package com.payair.fraud.detection.domain.policy;
 
 import com.payair.fraud.detection.application.data.TransactionData;
-import com.payair.fraud.detection.domain.data.account.AccountData;
-import com.payair.fraud.detection.domain.data.account.ConsumerType;
+import com.payair.fraud.detection.domain.account.AccountData;
+import com.payair.fraud.detection.domain.account.ConsumerType;
 import com.payair.fraud.detection.domain.policy.result.AssessmentResult;
 import com.payair.fraud.detection.domain.policy.result.Failure;
 import com.payair.fraud.detection.domain.policy.result.Success;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
-import static com.payair.fraud.detection.domain.data.account.ConsumerType.CONSUMER;
+import static com.payair.fraud.detection.domain.account.ConsumerType.CONSUMER;
 import static com.payair.fraud.detection.fixtures.AccountFixtures.accountDataWithConsumerType;
 import static com.payair.fraud.detection.fixtures.TransactionFixtures.randomTransactionData;
 import static org.junit.jupiter.api.Assertions.assertEquals;
