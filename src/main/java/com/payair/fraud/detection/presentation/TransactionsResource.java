@@ -12,7 +12,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.jboss.logging.Logger;
 
 import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapFromRequest;
 import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapToResponse;
@@ -23,7 +22,6 @@ import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapToRespo
 @Consumes(MediaType.APPLICATION_JSON)
 public class TransactionsResource {
 
-    private static final Logger log = Logger.getLogger(TransactionsResource.class);
     private final FraudDetectionService fraudDetectionService;
 
     @Inject
@@ -33,13 +31,11 @@ public class TransactionsResource {
 
     @POST
     public Response verifyTransaction(TransactionsRequest transactionsRequest) {
-        log.info("Verify transaction request: " + transactionsRequest);
 
         TransactionData transactionData = mapFromRequest(transactionsRequest);
         TransactionResult transactionResult = fraudDetectionService.verifyTransaction(transactionData);
         TransactionsResponse transactionsResponse = mapToResponse(transactionResult);
 
-        log.info("Verify transaction response: " + transactionsResponse);
         return Response.ok()
                 .entity(transactionsResponse)
                 .build();

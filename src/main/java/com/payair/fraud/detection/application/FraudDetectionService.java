@@ -8,13 +8,17 @@ import com.payair.fraud.detection.domain.policy.AssessmentPolicy;
 import com.payair.fraud.detection.domain.policy.result.Failure;
 import com.payair.fraud.detection.domain.risk.RiskAssessment;
 import io.quarkus.arc.All;
+import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.jboss.logging.Logger;
 
 import java.util.List;
 
 @ApplicationScoped
 public class FraudDetectionService {
+
+    private static final Logger log = Logger.getLogger(FraudDetectionService.class);
 
     private final List<AssessmentPolicy> policies;
     private final AccountDataProvider accountDataProvider;
@@ -25,7 +29,9 @@ public class FraudDetectionService {
         this.accountDataProvider = accountDataProvider;
     }
 
+    @CacheResult(cacheName = "transaction-verification-cache")
     public TransactionResult verifyTransaction(TransactionData transactionData) {
+        log.info("Verifying transaction: " + transactionData);
         RiskAssessment riskAssessment = new RiskAssessment();
         AccountData accountData = accountDataProvider.fetchAccountData(transactionData.bin());
 
@@ -34,7 +40,9 @@ public class FraudDetectionService {
                 .filter(assessmentResult -> assessmentResult instanceof Failure)
                 .forEach(failure -> riskAssessment.increaseRiskLevel(((Failure) failure).getMessage()));
 
-        return buildResult(riskAssessment);
+        TransactionResult transactionResult = buildResult(riskAssessment);
+        log.info("Transaction verification finished: " + transactionResult);
+        return transactionResult;
     }
 
     private TransactionResult buildResult(RiskAssessment riskAssessment) {

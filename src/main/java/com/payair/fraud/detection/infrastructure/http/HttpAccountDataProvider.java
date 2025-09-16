@@ -10,6 +10,7 @@ import com.payair.fraud.detection.domain.transaction.BIN;
 import com.payair.fraud.detection.infrastructure.http.client.AccountLookupClient;
 import com.payair.fraud.detection.infrastructure.http.dto.AccountLookupRequest;
 import com.payair.fraud.detection.infrastructure.http.dto.AccountLookupResponse;
+import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -29,6 +30,7 @@ public class HttpAccountDataProvider implements AccountDataProvider {
     }
 
     @Override
+    @CacheResult(cacheName = "account-data-cache")
     public AccountData fetchAccountData(BIN bin) {
         log.info("Fetching account data for bin: " + bin);
 
