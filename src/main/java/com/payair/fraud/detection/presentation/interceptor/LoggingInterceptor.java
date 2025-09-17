@@ -9,7 +9,7 @@ import jakarta.ws.rs.ext.Provider;
 import org.jboss.logging.Logger;
 
 @Provider
-@Priority(Integer.MAX_VALUE)
+@Priority(0)
 public class LoggingInterceptor implements ContainerRequestFilter, ContainerResponseFilter {
 
     private static final Logger LOG = Logger.getLogger(LoggingInterceptor.class);

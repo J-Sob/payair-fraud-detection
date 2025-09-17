@@ -5,6 +5,7 @@ import com.payair.fraud.detection.application.data.TransactionData;
 import com.payair.fraud.detection.application.data.TransactionResult;
 import com.payair.fraud.detection.presentation.dto.TransactionsRequest;
 import com.payair.fraud.detection.presentation.dto.TransactionsResponse;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
@@ -30,6 +31,7 @@ public class TransactionsResource {
     }
 
     @POST
+    @RolesAllowed("User")
     public Response verifyTransaction(TransactionsRequest transactionsRequest) {
 
         TransactionData transactionData = mapFromRequest(transactionsRequest);

@@ -1,5 +1,7 @@
 package com.payair.fraud.detection.presentation.interceptor;
 
+import jakarta.annotation.Priority;
+import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.container.ContainerResponseContext;
@@ -10,6 +12,7 @@ import org.jboss.logmanager.MDC;
 import java.util.UUID;
 
 @Provider
+@Priority(Priorities.HEADER_DECORATOR)
 public class RequestIdInterceptor implements ContainerRequestFilter, ContainerResponseFilter {
 
     private static final String REQUEST_ID_HEADER = "X-REQUESTID";
