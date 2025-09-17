@@ -18,10 +18,12 @@ import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapFromReq
 import static com.payair.fraud.detection.presentation.dto.DtoMappings.mapToResponse;
 
 
-@Path("/transactions")
+@Path(TransactionsResource.TRANSACTIONS_PATH)
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TransactionsResource {
+
+    public static final String TRANSACTIONS_PATH = "/transactions";
 
     private final FraudDetectionService fraudDetectionService;
 

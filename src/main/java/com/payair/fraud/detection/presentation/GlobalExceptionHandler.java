@@ -18,9 +18,9 @@ import static jakarta.ws.rs.core.Response.Status.NOT_FOUND;
 
 
 @Provider
-public class ExceptionHandler implements ExceptionMapper<Exception> {
+public class GlobalExceptionHandler implements ExceptionMapper<Exception> {
 
-    private static final Logger log = Logger.getLogger(ExceptionHandler.class);
+    private static final Logger log = Logger.getLogger(GlobalExceptionHandler.class);
 
     @Override
     public Response toResponse(Exception exception) {

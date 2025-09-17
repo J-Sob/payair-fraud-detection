@@ -1,11 +1,13 @@
 package com.payair.fraud.detection.infrastructure.http;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.payair.fraud.detection.profiles.TestPropertiesProfile;
 import com.payair.fraud.detection.domain.account.AccountData;
 import com.payair.fraud.detection.domain.exceptions.AccountDataNotAvailable;
 import com.payair.fraud.detection.domain.shared.ISONumericCountryCode;
 import com.payair.fraud.detection.domain.transaction.BIN;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.junit.TestProfile;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -18,6 +20,7 @@ import static com.payair.fraud.detection.fixtures.TransactionFixtures.randomBin;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
+@TestProfile(TestPropertiesProfile.class)
 class HttpAccountDataProviderIntegrationTest {
 
     private static WireMockServer wireMock;

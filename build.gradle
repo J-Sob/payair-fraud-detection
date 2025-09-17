@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
     id 'io.quarkus'
 }
 
@@ -23,6 +24,7 @@ dependencies {
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-junit5-mockito'
     testImplementation 'io.rest-assured:rest-assured'
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
     testImplementation "org.wiremock:wiremock:$wiremockVersion"
 }
 
@@ -35,14 +37,16 @@ java {
 }
 
 test {
+    useJUnitPlatform()
     systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+    systemProperty "e2e", findProperty("e2e")
 }
 
-compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
-}
+jacocoTestReport {
+    dependsOn(tasks.test)
 
-compileTestJava {
-    options.encoding = 'UTF-8'
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
