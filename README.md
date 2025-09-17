@@ -29,13 +29,13 @@ Project contains 3 types of tests:
 
 1. Unit tests
 2. Integration tests with WireMock
-3. E2E tests with Mastercard integration
+3. E2E tests with Mastercard integration (just an example with happy path)
 
 "E2E" tests aren't run on build with the rest due to strong coupling with internet access and Mastercard API availability. To run e2e with all the other tests run: `./gradlew test -Pe2e=true`
 
 ## Coverage
 
-I didn't aim for 100% coverage as I find it pointless in terms of this exercise. Many corner cases aren't covered, but I believe I've provided all the tools for proper test coverage.
+I didn't aim for 100% coverage as I find it pointless in terms of this exercise. Many corner cases aren't covered, but I believe I've provided all the tools for further testing.
 
 ![coverage](etc/img/coverage.png)
 
