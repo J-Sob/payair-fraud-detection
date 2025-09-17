@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class JwtGeneratorTest {
 
     @Test
-    public void shouldGenerateJwt() {
+    public void jwtGenerationVector() {
         String token = JwtGenerator.generateJwt();
         System.out.println(token);
     }
