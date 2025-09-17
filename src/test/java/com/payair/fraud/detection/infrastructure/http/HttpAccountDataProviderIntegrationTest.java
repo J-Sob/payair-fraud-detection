@@ -18,7 +18,7 @@ import static com.payair.fraud.detection.fixtures.TransactionFixtures.randomBin;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
-class HttpAccountDataProviderTest {
+class HttpAccountDataProviderIntegrationTest {
 
     private static WireMockServer wireMock;
 

@@ -3,6 +3,7 @@ package com.payair.fraud.detection.presentation;
 import com.payair.fraud.detection.domain.exceptions.AccountDataNotAvailable;
 import com.payair.fraud.detection.domain.exceptions.DomainException;
 import com.payair.fraud.detection.domain.exceptions.WrongDataFormatException;
+import com.payair.fraud.detection.infrastructure.exceptions.AuthenticationException;
 import com.payair.fraud.detection.infrastructure.exceptions.HttpException;
 import com.payair.fraud.detection.infrastructure.exceptions.InfrastructureException;
 import com.payair.fraud.detection.infrastructure.exceptions.KeystoreException;
@@ -48,6 +49,8 @@ public class ExceptionHandler implements ExceptionMapper<Exception> {
                     buildResponse(Response.Status.SERVICE_UNAVAILABLE, httpException.getMessage());
             case KeystoreException keystoreException ->
                     buildResponse(INTERNAL_SERVER_ERROR, keystoreException.getMessage());
+            case AuthenticationException authenticationException ->
+                    buildResponse(INTERNAL_SERVER_ERROR, authenticationException.getMessage());
         };
     }
 

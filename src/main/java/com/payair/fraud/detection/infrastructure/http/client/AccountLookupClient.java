@@ -1,5 +1,6 @@
 package com.payair.fraud.detection.infrastructure.http.client;
 
+import com.payair.fraud.detection.infrastructure.http.client.auth.OAuth1RequestFilter;
 import com.payair.fraud.detection.infrastructure.http.dto.AccountLookupRequest;
 import com.payair.fraud.detection.infrastructure.http.dto.AccountLookupResponse;
 import jakarta.ws.rs.POST;
@@ -11,8 +12,8 @@ import java.util.List;
 
 @Path("/bin-ranges")
 @RegisterRestClient(configKey = "lookup-api")
-@RegisterProvider(OAuth1RequestFilter.class)
 @RegisterProvider(HttpErrorMapper.class)
+@RegisterProvider(OAuth1RequestFilter.class)
 public interface AccountLookupClient {
 
     @POST
